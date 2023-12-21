@@ -1,0 +1,81 @@
+body {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: #0e0e0e;
+	gap: 2em;
+	overflow-x: clip;
+	font-family: "Bebas Neue", sans-serif !important;
+}
+
+h1 {
+	color: #fff;
+}
+
+.button {
+	font-family: "Bebas Neue", sans-serif !important;
+	position: relative; /* Required for the ::before pseudo-element */
+	border-radius: 50px;
+	border: 2px solid #ad865b;
+	/*Adjust padding as needed*/
+	padding: 10px 40px;
+	font-size: 18px !important;
+	color: white !important;
+	background-color: transparent;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	transition: all 0.2s ease-out;
+}
+
+.button::before {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	border-radius: 50px;
+	border: 2px solid #fdfaf3;
+	filter: blur(10px);
+	transition: 0.25s all;
+}
+
+.button:hover {
+	transform: scale(1.05);
+}
+
+.button-text {
+	position: relative;
+	overflow: hidden;
+	height: 1rem;
+	line-height: 1rem;
+}
+
+.button-text-static,
+.button-text-hover {
+	transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+}
+
+.button-text-static {
+	display: block;
+	transform: translateY(0);
+}
+
+.button-text-hover {
+	position: absolute;
+	top: 0;
+	left: 0;
+	transform: translateY(102%);
+}
+
+.button:hover .button-text-static {
+	transform: translateY(-102%);
+}
+
+.button:hover .button-text-hover {
+	transform: translateY(0);
+}
